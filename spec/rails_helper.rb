@@ -9,15 +9,15 @@ require 'rspec/rails'
 require 'capybara'
 require 'support/database_cleaner'
 require 'support/factory_bot'
-require 'support/controller_macros'
+require 'support/sessions_helper'
 require 'devise'
 
 RSpec.configure do |config|
     
   # Include devise and factory bot methods and helpers within testing env
-  config.include Devise::Test::ControllerHelpers, :type => :controller
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::IntegrationHelpers, type: :request
   config.include FactoryBot::Syntax::Methods
-  config.extend ControllerMacros, :type => :controller
 end
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
