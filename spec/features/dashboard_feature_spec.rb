@@ -20,7 +20,7 @@ RSpec.feature "User dashboard", :type => :feature do
             visit new_user_session_path
             sign_in_capybara(@user)
 
-            expect(page).to have_text("This is the Dashboard page")    
+            expect(page).to have_title("Dashboard")    
         end
     end
 

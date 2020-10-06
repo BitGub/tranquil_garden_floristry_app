@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TranquilGardenFloristryApp</title>
+    <title><%= content_for?(:html_title) ? yield(:html_title) : "TranquilGardenFloristry" %> </title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
