@@ -15,6 +15,7 @@ RSpec.feature "products", :type => :feature do
 
         before(:each) do
             @user = FactoryBot.create(:user)
+            @product = FactoryBot.create(:product)
         end
 
         scenario "can visit restricted pages" do
@@ -29,13 +30,26 @@ RSpec.feature "products", :type => :feature do
             visit new_user_session_path
             sign_in_capybara(@user)
 
-            click_link "Create new product"
+            click_link "View Products"
+            click_link "New +"
             fill_in "product[name]", with: "Test Product 01"
             fill_in "product[description]", with: "Test product description"
             fill_in "product[price]", with: 5.00
             click_button "Create Product"
 
-            expect(body).to include("success")
+            expect(body).to include("created")
+        end
+
+        scenario "can edit an exsisting product" do
+            visit new_user_session_path
+            sign_in_capybara(@user)
+            visit products_path
+
+            click_link "Edit"
+            fill_in "product[name]", with: "EditedProductName"
+            click_button "Update Product"
+
+            expect(body).to include ("updated")
         end
 
     end
