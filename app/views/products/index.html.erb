@@ -17,6 +17,8 @@
       <tr>
         <td><h2><%= link_to product.name, edit_product_path(product) %> </h2></td>
         <td><p><%= link_to "Edit", edit_product_path(product) %> </p></td>
+        <td><p><%= link_to "Delete", product, method: :delete,
+        data: { confirm: "You sure?" } %> </p></td> 
       </tr>
     <% end %>
     </tbody>

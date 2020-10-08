@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :product do
-    name { "ProductName" }
-    description { "Product Description" }
-    price { "5.00" }
+    sequence(:name)  { |n| "Product #{n}" }
+    sequence(:description) { |n| "Product Description #{n}" }
+    sequence(:price) { |n| "#{n}.00" }
   end
 end
