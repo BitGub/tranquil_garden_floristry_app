@@ -1,4 +1,6 @@
 
+<%= link_to '< Back', products_path %>
+
 <%= form_with(model: @product,  local:true)  do |f| %>
 
     <div class="form-group">
@@ -16,5 +18,5 @@
     </div>
     
     <%= f.submit class: "btn btn-primary" %>
-    
+    <%= link_to "Cancel", products_path, class: "btn btn-secondary" %>
   <% end %>
