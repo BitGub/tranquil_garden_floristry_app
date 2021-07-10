@@ -1,22 +1,8 @@
 
 <%= link_to '< Back', products_path %>
 
-<%= form_with(model: @product,  local:true)  do |f| %>
+<%= form_with(model: @product,  local:true, html: { class: "needs-validation", novalidate:true } )  do |product| %>
 
-    <div class="form-group">
-      <%= f.label :name %><br />
-      <%= f.text_field :name, class: "form-control" %>
-    </div>
-    <div>
-      <%= f.label :description %><br />
-      <%= f.text_area :description, class: "form-control" %>
-    </div>
-    
-    <div class="form-group">
-      <%= f.label :price %>
-      <%= f.text_field :price,   class: "form-control" %>
-    </div>
-    
-    <%= f.submit class: "btn btn-primary" %>
-    <%= link_to "Cancel", products_path, class: "btn btn-secondary" %>
-  <% end %>
+  <%= render 'fields', f: product %>
+
+<% end %>
